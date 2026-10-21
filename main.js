@@ -24,9 +24,18 @@
     if(ev&&(ev.ctrlKey||ev.metaKey||ev.shiftKey))return true;
     var src=kind==='v'?'https://player.vimeo.com/video/'+id+'?autoplay=1':'https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0';
     f.innerHTML='<iframe src="'+src+'" title="Video player" allow="autoplay;fullscreen;picture-in-picture" allowfullscreen></iframe>';
-    lastFocus=d.activeElement;m.classList.add('open');b.style.overflow='hidden';d.getElementById('mx').focus();return false;
+    lastFocus=d.activeElement;m.classList.remove('img');m.classList.add('open');b.style.overflow='hidden';d.getElementById('mx').focus();return false;
   };
-  function close(){f.innerHTML='';m.classList.remove('open');b.style.overflow='';if(lastFocus)lastFocus.focus()}
+  window.pz=function(src,alt){
+    f.innerHTML='';var im=d.createElement('img');im.src=src;im.alt=alt||'';f.appendChild(im);
+    m.classList.add('img');lastFocus=d.activeElement;m.classList.add('open');b.style.overflow='hidden';d.getElementById('mx').focus();
+  };
+  [].forEach.call(d.querySelectorAll('.pics img,.zoomable'),function(im){
+    im.setAttribute('tabindex','0');im.setAttribute('role','button');im.setAttribute('title','Click to view full image');
+    im.addEventListener('click',function(){pz(im.currentSrc||im.src,im.alt)});
+    im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pz(im.currentSrc||im.src,im.alt)}});
+  });
+  function close(){f.innerHTML='';m.classList.remove('open','img');b.style.overflow='';if(lastFocus)lastFocus.focus()}
   d.getElementById('mx').onclick=close;
   m.addEventListener('click',function(e){if(e.target===m)close()});
   d.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close()});
