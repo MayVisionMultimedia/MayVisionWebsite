@@ -251,6 +251,10 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:48px 0 22p
 /* virtual event poster cards */
 .poster{border-style:solid;border-color:rgba(66,165,245,.35);background:radial-gradient(circle at 20% 15%,rgba(34,211,238,.18),transparent 55%),radial-gradient(circle at 85% 90%,rgba(255,77,157,.16),transparent 55%),linear-gradient(135deg,var(--card),var(--card2))}
 .poster .zh{display:block;margin-top:6px;font-size:14px;letter-spacing:0}
+/* category intro */
+.catintro{max-width:860px;margin:0 0 20px;color:var(--muted);line-height:1.7}
+.catintro p{margin:0 0 6px}
+.catintro .zh{font-size:15px}
 /* about page */
 .abt{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(24px,4vw,56px);align-items:center}
 .abt-photo{position:relative}
