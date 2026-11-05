@@ -236,6 +236,10 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:48px 0 22p
   html.js .rv{opacity:1;transform:none}
 }
 
+.langsw{display:inline-flex;align-items:center;justify-content:center;min-width:38px;height:38px;padding:0 10px;border:1px solid var(--line,rgba(255,255,255,.2));border-radius:10px;font:600 13px Barlow,sans-serif;text-decoration:none;color:inherit;letter-spacing:.05em}
+.langsw.on{background:var(--cyan);color:#fff;border-color:var(--cyan)}
+.langsw:hover{border-color:var(--cyan)}
+
 /* hero chips */
 .c2{top:53%!important}.c3{left:2%;bottom:22%;border-color:var(--amber)}.c4{right:2%;top:33%;border-color:var(--violet)}.c5{left:30%;top:-2%;border-color:var(--pink)}
 /* uncropped galleries + lightbox */
